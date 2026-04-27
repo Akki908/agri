@@ -103,9 +103,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [showScorecard, setShowScorecard] = useState(false);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
-  useEffect(() => {
-  console.log("USER DATA:", userData);
-}, [userData]);
+  
   const { refs, floatingStyles } = useFloating({
   placement: "bottom-end",
   middleware: [
@@ -205,11 +203,11 @@ function App() {
      };
      window.addEventListener("online", handleNetworkChange);
      window.addEventListener("offline", handleNetworkChange);
-     const interval = setInterval(handleNetworkChange, 1000);
+     
      return () => {
        window.removeEventListener("online", handleNetworkChange);
        window.removeEventListener("offline", handleNetworkChange);
-       clearInterval(interval);
+       
      };
    }, []);
 
